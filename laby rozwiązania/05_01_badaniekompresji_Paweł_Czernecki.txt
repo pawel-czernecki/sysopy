@@ -1,0 +1,24 @@
+Tworzenie plików:
+dd if=/dev/zero of=zero2.dat bs=10M count=100
+dd if=/dev/urandom of=random2.dat bs=10M count=100
+
+
+-rw-r--r-- 1 czernecki czernecki 1048576000 gru 15 13:32 random2.dat
+-rw-r--r-- 1 czernecki czernecki 1048745981 gru 15 13:26 random.dat.gz
+-rw-r--r-- 1 czernecki czernecki 1048576000 gru 15 13:32 zero2.dat
+-rw-r--r-- 1 czernecki czernecki    1017656 gru 15 13:25 zero.dat.gz
+
+Tekst jest dobrze kompresowany pod warunkiem występowania pewnych powtarzanych wzorów, które występują w mowie ludzkiej np. jak zera. Dlatego plik z samymi zerami został skompresowany 100 krotnie natomiast z losowymi nie uległ kompresji.
+Do kompresji użyłem polecenia gzip z parametrem -9
+
+Następnie zmieniłem jeszcze rozmiar buforów, aby dane mogły ulec większej komprecji. Orginalnie ponownie ważyły łącznie 1GB:
+dd if=/dev/zero of=zero2.dat bs=1GB count=1
+dd if=/dev/urandom of=random2.dat bs=1GB count=1
+
+-rw-r--r-- 1 czernecki czernecki 1048745981 gru 15 13:26 random3.dat
+-rw-r--r-- 1 czernecki czernecki   33559581 gru 15 13:43 random3.dat.gz
+-rw-r--r-- 1 czernecki czernecki     970511 gru 15 13:43 zero3.dat.gz
+
+
+Widzimy, że plik z zerami zmniejszył swoją wielkość około 1000 krotnie.
+Plik z losowymi znakami zmniejszył swoją wielkość około 30 razy

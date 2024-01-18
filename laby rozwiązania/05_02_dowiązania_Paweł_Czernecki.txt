@@ -1,0 +1,7 @@
+Porównanie dowiązań miękkich i twardych:
+
+-rw-r--r-- 2 czernecki czernecki    1048576 gru 15 13:49 losowy.dat
+-rw-r--r-- 2 czernecki czernecki    1048576 gru 15 13:49 losowy-hard.dat
+lrwxrwxrwx 1 czernecki czernecki         10 gru 15 13:49 losowy-soft.dat -> losowy.dat
+
+Dowiązanie - miękkie tylko wskaźnik - zajmuje wyłącznie kilka bajtów.
